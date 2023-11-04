@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const navigate = useNavigate();
-    const {signIn}=useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
 
     // Login User
     const handleLogin = (e) => {
@@ -25,10 +25,22 @@ const Login = () => {
                 console.log(err.message)
                 Swal.fire('Oops!', err.message, 'error')
             })
-    }  
+    }
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(() => {
+                Swal.fire('Good job!', 'Google Login Successful!', 'success');
+                // navigate('/');
+                navigate(location?.state ? location?.state : '/');
+            })
+            .catch(err => Swal.fire('Good job!', err.message, 'error'))
+    }
 
     return (
         <div className="justify-center my-20 flex">
+            {/* <h2>Please Login Now!</h2> */}
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                     <form onSubmit={handleLogin}>
@@ -56,9 +68,9 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    <p>Don’t have an account? <Link to={'/register'}><button href="" className="text-amber-500 underline">Create an account</button></Link></p>
+                    <p>Do not have an account? <Link to={'/signUp'}><button href="" className="text-amber-500 underline">Create an account</button></Link></p>
                     <div className="border-2 mt-3 p-2 rounded-full text-green-300">
-                        {/* <button className="flex items-center justify-between" onClick={handleGoogleLogin}> */}
+                        <button className="flex items-center justify-between" onClick={handleGoogleLogin}>
                             <div><svg xmlns="http://www.w3.org/2000/svg" width="31" height="32" viewBox="0 0 31 32" fill="none">
                                 <g>
                                     <path d="M30.9999 16.2335C30.9999 15.1547 30.9128 14.0702 30.7268 13.0089H15.8108V19.1198H24.3525C23.998 21.0907 22.8592 22.8342 21.1915 23.9421V27.9071H26.2875C29.28 25.1432 30.9999 21.0615 30.9999 16.2335Z" fill="#4285F4" />
@@ -72,7 +84,7 @@ const Login = () => {
                                     </clipPath>
                                 </defs>
                             </svg></div>
-                            {/* <span className=" ml-20 mr-6">Google Login</span></button> */}
+                            <span className=" ml-20 mr-6">Google Login</span></button>
                     </div>
                 </div>
             </div>
