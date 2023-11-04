@@ -2,11 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../../assets/provider/AuthProvider";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [isDarkMode, setIsDarkMode] = useState(false);
+
+    // Sign Out
+    const handleLogout = () => {
+        logOut()
+            .then(() => Swal.fire('Oops!', 'LogOut Successful!', 'success'))
+            .catch((err) => Swal.fire('Oops!', err.message, 'error'))
+    }
 
     const navLink = <>
         <ul className="menu menu-horizontal px-1 md:flex gap-1 hidden">
@@ -123,7 +130,7 @@ const Header = () => {
 
                     {user ? <>
                         <div className="flex flex-col lg:flex-row justify-center text-center items-center">
-                            <button className="btn btn-primary mx-3">Login Out</button>
+                            <button onClick={handleLogout} className="btn btn-primary mx-3">Login Out</button>
                             <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
                             <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
                                 <div className="w-10 rounded-full">
@@ -132,7 +139,7 @@ const Header = () => {
                             </label>
                         </div>
                     </>
-                    : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
+                        : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
                 </div>
             </div>
         </div>
