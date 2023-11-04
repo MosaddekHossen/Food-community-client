@@ -52,8 +52,8 @@ const Header = () => {
         <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-slate-400 text-white">
             <li>
                 <NavLink to={'/'}
-                    className={({ isActive }) =>
-                        isActive ? 'bg-[#a433aa] text-white' : ''}>
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] my-3 hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
                     Home
                 </NavLink>
             </li>
