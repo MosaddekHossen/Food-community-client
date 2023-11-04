@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/FirebaseConfig";
 
 export const AuthContext = createContext(null);
@@ -12,8 +12,14 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
+    // Sign In 
+    const signIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
     const authInfo = {
-        signUp
+        signUp,
+        signIn
     }
 
     return (
