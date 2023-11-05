@@ -27,6 +27,7 @@ const Footer = () => {
                 <aside>
                     <img className="h-[50px] w-[50] rounded-full" src="https://img.freepik.com/premium-photo/tandoori-chicken-is-chicken-dish-prepared-by-roasting-chicken-marinated-yogurt-spices-tandoor-clay-oven-served-with-onion-green-chutney_466689-77615.jpg?w=996" alt="" />
                     <h2 className="normal-case text-3xl font-bold text-[#6531ae]">Food Sharing</h2>
+                    <p>Copyright &copy; 2023 - All right reserved</p>
                     <div className="flex gap-1 mt-4">
                         <a href="https://www.google.com/" className='bg-[#3d3b3b] p-3 text-[16px] rounded-full'><FaGoogle></FaGoogle></a>
                         <a href="https://twitter.com/" className='bg-[#3d3b3b] p-3 text-[16px] rounded-full'><FaTwitter></FaTwitter></a>

@@ -4,7 +4,8 @@ const Home = () => {
         backgroundImage: 'url("https://img.freepik.com/free-photo/exploding-burger-with-vegetables-melted-cheese-black-background-generative-ai_157027-1734.jpg?w=1060&t=st=1699117652~exp=1699118252~hmac=de378d71376c9161300c2a060165e9595926c34ddebc57c4115e1357fc1901c7")',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+        backgroundPosition: 'top',
+        width: "100%",
     };
 
     return (
