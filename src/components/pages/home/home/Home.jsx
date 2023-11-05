@@ -1,3 +1,5 @@
+import Cards from "../cards/Cards";
+
 const Home = () => {
 
     const containerStyle = {
@@ -15,6 +17,9 @@ const Home = () => {
                     <h1 className="lg:text-5xl text-3xl text-white font-bold text-center">Community Food Sharing <br /> and Surplus
                         Reduction Platform!!!</h1>
                 </div>
+            </div>
+            <div className="max-w-7xl mx-auto">
+                <Cards></Cards>
             </div>
         </>
     );
