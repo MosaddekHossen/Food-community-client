@@ -19,22 +19,25 @@ const card = ({ food }) => {
                     <h3 className="font-semibold">{userName}</h3>
                 </div>
             </div>
-            <div className="p-5">
-                <p>Food Quantity: {foodQuantity}</p>
-            </div>
             <p className="mx-6 p-1 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
                 Food Name: {foodName}
             </p>
             <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
                 Brand Name: {foodStatus}
+            </p>            
+            <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
+                Brand Name: {foodQuantity}
+            </p>
+            <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
+                Brand Name: {pickupLocation}
             </p>
             <div className="p-6">
                 <div className="mb-2 flex items-center justify-between">
                     <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                        Pickup Location: {pickupLocation}
+                        Pickup Location: {}
                     </p>
                     <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                        Price: {expiredDate} $
+                        Expired Date: {expiredDate}
                     </p>
                 </div>
                 <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">

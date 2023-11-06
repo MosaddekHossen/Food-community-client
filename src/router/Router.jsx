@@ -6,6 +6,8 @@ import SignUp from '../components/pages/signUp/SignUp';
 import Login from '../components/pages/login/Login';
 import AddFood from '../components/pages/addFood/AddFood';
 import AvailableFoods from '../components/pages/availableFoods/AvailableFoods';
+import ManageFood from '../components/pages/manageFood/ManageFood';
+import FoodRequest from '../components/pages/foodRequest/FoodRequest';
 
 const Router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const Router = createBrowserRouter([
             {
                 path: '/addFood',
                 element: <AddFood></AddFood>
+            },
+            {
+                path: '/manageFoods',
+                element: <ManageFood></ManageFood>
+            },
+            {
+                path: '/foodRequest',
+                element: <FoodRequest></FoodRequest>
             },
             {
                 path: '/signUp',
