@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 const card = ({ food }) => {
-    const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, userImage, foodImage } = food || {};
+    const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
+    //  userEmail,
+
     return (
-        <div className="card shadow-xl h-full mt-10">
+        <div className="shadow-xl mt-10">
             <figure className="px-2 pt-2">
-                <img src={foodImage} alt="Car" className="rounded-xl h-[300px] w-full" />
+                <img src={foodImage} alt="Food" className="rounded-xl h-[300px] w-full" />
             </figure>
             <div className="flex items-center mt-2">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -40,8 +40,8 @@ const Login = () => {
 
     return (
         <div className="justify-center my-20 flex">
-            {/* <h2>Please Login Now!</h2> */}
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <h2 className="md:text-4xl text-2xl mt-7 mx-auto flex justify-center font-bold text-black">Please Login Now!</h2>
                 <div className="card-body">
                     <form onSubmit={handleLogin}>
                         <div className="form-control">

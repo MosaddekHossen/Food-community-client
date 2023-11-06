@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../../assets/provider/AuthProvider";
@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    // const [isDarkMode, setIsDarkMode] = useState(false);
 
     // Sign Out
     const handleLogout = () => {
@@ -36,6 +36,20 @@ const Header = () => {
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Add Food
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to={'/manageFoods'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Manage Foods
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to={'/foodRequest'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Food Request
                 </NavLink>
             </li>
             <li>
@@ -72,6 +86,20 @@ const Header = () => {
                 </NavLink>
             </li>
             <li>
+                <NavLink to={'/manageFoods'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Manage Foods
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to={'/foodRequest'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Food Request
+                </NavLink>
+            </li>
+            <li>
                 <NavLink to={'/signUp'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
@@ -82,25 +110,25 @@ const Header = () => {
     </>
 
     // // Dark Mode
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            setIsDarkMode(savedTheme === "dark");
-        } else {
-            setIsDarkMode(document.documentElement.getAttribute("data-theme") === "dark");
-        }
-    }, []);
+    // useEffect(() => {
+    //     const savedTheme = localStorage.getItem("theme");
+    //     if (savedTheme) {
+    //         setIsDarkMode(savedTheme === "dark");
+    //     } else {
+    //         setIsDarkMode(document.documentElement.getAttribute("data-theme") === "dark");
+    //     }
+    // }, []);
 
-    const toggleDarkMode = () => {
-        const newTheme = isDarkMode ? "light" : "dark";
-        setIsDarkMode(!isDarkMode);
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-    };
+    // const toggleDarkMode = () => {
+    //     const newTheme = isDarkMode ? "light" : "dark";
+    //     setIsDarkMode(!isDarkMode);
+    //     document.documentElement.setAttribute("data-theme", newTheme);
+    //     localStorage.setItem("theme", newTheme);
+    // };
 
-    const handleToggle = () => {
-        toggleDarkMode();
-    };
+    // const handleToggle = () => {
+    //     toggleDarkMode();
+    // };
 
     return (
         <div className="max-w-7xl mx-auto sticky top-0 z-50">
@@ -121,12 +149,12 @@ const Header = () => {
                 <div className="navbar-end">
 
                     {/* Dark Mode button */}
-                    <input
+                    {/* <input
                         type="checkbox"
                         className="toggle mx-2"
                         checked={isDarkMode}
                         onChange={handleToggle}
-                    />
+                    /> */}
 
                     {user ? <>
                         <div className="flex flex-col lg:flex-row justify-center text-center items-center">

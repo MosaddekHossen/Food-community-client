@@ -1,4 +1,5 @@
 import Cards from "../cards/Cards";
+import SingleCar from "./singleCar";
 
 const Home = () => {
 
@@ -19,6 +20,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="max-w-7xl mx-auto">
+                <SingleCar></SingleCar>
                 <Cards></Cards>
             </div>
         </>
