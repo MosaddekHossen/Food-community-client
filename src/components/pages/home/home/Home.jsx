@@ -1,4 +1,5 @@
 import Cards from "../cards/Cards";
+import Slider from "./Slider";
 import SingleCar from "./singleCar";
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
             <div className="max-w-7xl mx-auto">
                 <SingleCar></SingleCar>
                 <Cards></Cards>
+                <Slider></Slider>
             </div>
         </>
     );
