@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Modal from "../modal/Modal";
 
 const card = ({ food }) => {
-    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
+    const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
 
     return (
         <>

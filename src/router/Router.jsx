@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../layout/Layout';
-import ErrorPage from '../components/pages/errorpage/ErrorPage';
+import ErrorPage from '../components/pages/errorPage/ErrorPage';
 import Home from '../components/pages/home/home/Home';
 import SignUp from '../components/pages/signUp/SignUp';
 import Login from '../components/pages/login/Login';
 import AddFood from '../components/pages/addFood/AddFood';
 import AvailableFoods from '../components/pages/availableFoods/AvailableFoods';
-import ManageFood from '../components/pages/manageFood/ManageFood';
+import ManageFood from '../components/pages/manageFood/ManageFoods';
 import FoodRequest from '../components/pages/foodRequest/FoodRequest';
 import Private from '../components/private/Private';
 
@@ -32,7 +32,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/manageFoods',
-                element: <Private><ManageFood></ManageFood></Private>
+                element: <Private><ManageFood></ManageFood></Private>,
+                loader: () => fetch('http://localhost:5000/food')
             },
             {
                 path: '/foodRequest',
