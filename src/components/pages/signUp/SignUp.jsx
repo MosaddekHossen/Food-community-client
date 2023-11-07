@@ -4,6 +4,7 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from '../../../provider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -64,6 +65,9 @@ const SignUp = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Food Sh | SignUp</title>
+            </Helmet>
             <div className="text-center px-8 lg:px-0 pb-10">
                 <div className="mx-auto lg:w-1/3 md:w-2/3 mt-20 bg-[#8470c2] p-5 rounded-lg">
                     <h2 className="text-3xl mb-8 mx-auto flex justify-center font-medium text-white">Please Register</h2>

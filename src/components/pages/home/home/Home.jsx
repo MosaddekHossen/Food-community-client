@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Cards from "../cards/Cards";
 import Slider from "./Slider";
 import SingleCar from "./singleCar";
@@ -20,6 +21,9 @@ const Home = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Food Sh | Home</title>
+            </Helmet>
             <div style={containerStyle} data-aos="zoom-in">
                 <div className="flex items-center justify-center h-[91vh] px-8 lg:px-0">
                     <h1 className="lg:text-5xl text-3xl text-white font-bold text-center">Community Food Sharing <br /> and Surplus
