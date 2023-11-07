@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { AuthContext } from "../../assets/provider/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext)
     // const [isDarkMode, setIsDarkMode] = useState(false);
 
     // Sign Out

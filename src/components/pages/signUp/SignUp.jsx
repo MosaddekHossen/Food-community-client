@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../assets/provider/AuthProvider";
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../assets/provider/AuthProvider";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const AddFood = () => {
     const { user } = useContext(AuthContext);
@@ -112,7 +112,7 @@ const AddFood = () => {
                             <span className="label-text">User Name</span>
                         </label>
                         <label>
-                            <input required type="text" name="userName" placeholder="User Name" defaultValue={displayName} className="input input-bordered w-full" />
+                            <input required type="text" name="userName" placeholder="User Name" readOnly defaultValue={displayName} className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
@@ -120,7 +120,7 @@ const AddFood = () => {
                             <span className="label-text">User Email</span>
                         </label>
                         <label>
-                            <input type="email" required name="userEmail" placeholder="User Email" defaultValue={email} className="input input-bordered w-full" />
+                            <input type="email" required name="userEmail" placeholder="User Email" readOnly defaultValue={email} className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ const AddFood = () => {
                         <span className="label-text">User Image</span>
                     </label>
                     <label>
-                        <input type="text" required name="userImage" placeholder="User Image" defaultValue={photoURL} className="input input-bordered w-full" />
+                        <input type="text" required name="userImage" placeholder="User Image" readOnly defaultValue={photoURL} className="input input-bordered w-full" />
                     </label>
                 </div>
                 {/* Form row */}

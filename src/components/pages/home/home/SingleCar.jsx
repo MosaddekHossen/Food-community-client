@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SingleCar = () => {
     return (
@@ -12,7 +13,7 @@ const SingleCar = () => {
                             <p className="py-6">It is simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry pandas - in a heartbeat!
 
                                 Interested? Let is start our partnership today!</p>
-                            <button className="btn btn-ghost bg-violet-400">SEE ALL FOOD</button>
+                            <Link to={'/availableFoods'}><button className="btn btn-ghost bg-violet-400">SEE ALL FOOD</button></Link>
                         </div>
                     </div>
                 </div>
