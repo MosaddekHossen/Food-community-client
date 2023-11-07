@@ -1,9 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Slider = () => {
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
+
     return (<>
-        <div className='md:mb-20 mb-10'>
+        <div className='md:mb-20 mb-10' data-aos="zoom-in">
             <div className="max-w-7xl mx-auto text-center">
                 <h2 className="lg:text-5xl text-3xl font-bold mb-10">Foods Slider</h2>
             </div>
