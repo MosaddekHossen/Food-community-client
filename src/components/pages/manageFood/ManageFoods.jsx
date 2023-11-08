@@ -1,18 +1,24 @@
 import { useLoaderData } from "react-router-dom";
 import ManageFood from "./ManageFood";
 import { Helmet } from "react-helmet";
+import { useState } from "react";
 
 const ManageFoods = () => {
     const mgFoods = useLoaderData()
-    //  onClick={() => handleDelete(_id)}
-    //  onClick={() => HandleBookingConfirm(_id)}
+    const [foods, setFoods] = useState(mgFoods);
+
     return (<>
         <Helmet>
             <title>Food Sh | ManageFoods</title>
         </Helmet>
         <div className="px-8 lg:px-0">
             {
-                mgFoods?.map((food, index) => <ManageFood key={index} food={food}></ManageFood>)
+                foods?.map((food, index) => <ManageFood
+                    key={index}
+                    food={food}
+                    foods={foods}
+                    setFoods={setFoods}
+                ></ManageFood>)
             }
         </div>
     </>

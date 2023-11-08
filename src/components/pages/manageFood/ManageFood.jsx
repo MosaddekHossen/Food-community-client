@@ -1,13 +1,13 @@
 import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 import PropTypes from 'prop-types';
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
-const ManageFood = ({ food }) => {
+const ManageFood = ({ food, foods, setFoods }) => {
     const { _id, foodImage } = food || {};
-    //   foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage,
 
     const handleDelete = _id => {
-        console.log(_id)
+        // console.log(_id)
 
         Swal.fire({
             title: 'Are you sure?',
@@ -31,8 +31,8 @@ const ManageFood = ({ food }) => {
                                 'Your Brand has been deleted.',
                                 'success'
                             )
-                            // const remaining = brands.filter(brand => brand._id !== _id);
-                            // setBrands(remaining);
+                            const remaining = foods.filter(food => food._id !== _id);
+                            setFoods(remaining);
                         }
                     })
             }
@@ -53,15 +53,12 @@ const ManageFood = ({ food }) => {
                                     </div>
                                 </div>
                             </td>
-                            <button
-                                className="w-1/3 select-none rounded-lg bg-gray-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                type="button"
-                            >
+                            <Link className="w-1/3 select-none rounded-lg bg-gray-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" to={`/manageFood/${_id}`}>
                                 Manage
-                            </button>
+                            </Link>
                             <th>
                                 <div className="grid gap-2">
-                                    <button className="btn btn-info btn-sm text-3xl font-bold p-1 h-auto"><MdModeEdit /></button>
+                                    <Link to={`/foodUpdate/${_id}`}><button className="btn btn-info btn-sm text-3xl font-bold p-1 h-auto"><MdModeEdit /></button></Link>
                                     <button onClick={() => handleDelete(_id)} className="btn btn-error btn-sm text-3xl font-bold p-1 h-auto"><MdDeleteForever /></button>
                                 </div>
                             </th>
@@ -72,7 +69,11 @@ const ManageFood = ({ food }) => {
         </div>
     );
 };
+
 ManageFood.propTypes = {
-    food: PropTypes.object
+    food: PropTypes.object,
+    foods: PropTypes.node,
+    setFoods: PropTypes.node,
 }
+
 export default ManageFood;
