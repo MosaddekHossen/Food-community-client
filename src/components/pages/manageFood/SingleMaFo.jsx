@@ -7,7 +7,7 @@ const SingleMaFo = () => {
     return (
         <>
             <div className="rounded-md my-12 py-12 bg-[#F4F3F0] text-center">
-                <h2 className="text-4xl mb-3 font-extrabold">Manage A Single Food</h2>
+                <h2 className="text-4xl mb-3 text-purple-500 p-2 font-extrabold">Manage A Single Food</h2>
                 <div className="max-w-7xl mx-auto">
                     <div className="overflow-x-auto">
                         <table className="table">
@@ -37,7 +37,7 @@ const SingleMaFo = () => {
                                         {expiredDate}
                                     </td>
                                     <th>
-                                        <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">Available</button>
+                                        <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">{foodStatus}</button>
                                     </th>
                                 </tr>
                             </tbody>

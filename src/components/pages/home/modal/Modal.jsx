@@ -1,8 +1,50 @@
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Modal = ({ food }) => {
-    const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
+    // const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
+    const { user } = useContext(AuthContext);
+    const { _id, foodName, pickupLocation, expiredDate, foodImage } = food || {};
+    const { displayName, email } = user || {};
+
+    const handleRequest = event => {
+        event.preventDefault();
+        const form = event.target;
+        const foodName = form.foodName.value;
+        const foodQuantity = form.foodQuantity.value;
+        const pickupLocation = form.pickupLocation.value;
+        const expiredDate = form.expiredDate.value;
+        const additionalNotes = form.additionalNotes.value;
+        const foodStatus = form.foodStatus.value;
+        const userName = form.userName.value;
+        const userEmail = form.userEmail.value;
+        const foodImage = form.foodImage.value;
+        const AddFood = { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
+
+        // Send data to the server
+        fetch('http://localhost:5000/request', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(AddFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Add Your Request Food successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    form.reset();
+                }
+            })
+    }
 
     return (
         <dialog id="my_modal_3" className="modal">
@@ -10,55 +52,96 @@ const Modal = ({ food }) => {
                 <form method="dialog">
                     <button onClick={() => document.getElementById('my_modal_3').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
-                <div className="shadow-xl mt-10">
-                    <figure className="px-2 pt-2">
-                        <img src={foodImage} alt="Food" className="rounded-xl h-full w-full" />
-                    </figure>
-                    <div className="flex items-center mt-2">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={userImage} />
-                            </div>
+                {/* <div className="shadow-xl mt-10"> */}
+                <form onSubmit={handleRequest}>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Food Name</span>
+                            </label>
+                            <label>
+                                <input type="text" readOnly required defaultValue={foodName} name="foodName" placeholder="Food Name" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Food Id</span>
+                            </label>
+                            <label>
+                                <input type="text" required readOnly defaultValue={_id} name="foodQuantity" placeholder="Food Quantity" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                    </div>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Pickup Location</span>
+                            </label>
+                            <label>
+                                <input type="text" readOnly required defaultValue={pickupLocation} name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Expired Date</span>
+                            </label>
+                            <label>
+                                <input type="date" required readOnly defaultValue={expiredDate} name="expiredDate" placeholder="Expired Date" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                    </div>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Additional Notes</span>
+                            </label>
+                            <label>
+                                <input type="text" required name="additionalNotes" placeholder="Additional Notes" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Donation Money</span>
+                            </label>
+                            <label>
+                                <input type="number" required name="foodStatus" placeholder="Donation Money" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                    </div>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Food Donator Name</span>
+                            </label>
+                            <label>
+                                <input required type="text" name="userName" placeholder="User Name" readOnly defaultValue={displayName} className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">User Email</span>
+                            </label>
+                            <label>
+                                <input type="email" required name="userEmail" placeholder="User Email" readOnly defaultValue={email} className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                    </div>
+                    {/* Form row */}
+                    <div className="form-control md:w-full md:mb-10 pb-5">
+                        <label className="label">
+                            <span className="label-text">Food Image</span>
                         </label>
-                        <div className="pl-3">
-                            <h3 className="font-semibold">{userName}</h3>
-                        </div>
+                        <label>
+                            <input type="text" readOnly required defaultValue={foodImage} name="foodImage" placeholder="Food Image" className="input input-bordered w-full" />
+                        </label>
                     </div>
-                    <p className="mx-6 p-1 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
-                        Food Name: {foodName}
-                    </p>
-                    <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
-                        Brand Name: {foodStatus}
-                    </p>
-                    <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
-                        Brand Name: {foodQuantity}
-                    </p>
-                    <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
-                        Brand Name: {pickupLocation}
-                    </p>
-                    <div className="p-6">
-                        <div className="mb-2 flex items-center justify-between">
-                            <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                                Pickup Location: { }
-                            </p>
-                            <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                                Expired Date: {expiredDate}
-                            </p>
-                        </div>
-                        <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-                            Additional Notes: {additionalNotes}
-                        </p>
-                    </div>
-                    <div className="p-6 pt-0">
-                        <div>
-                            <div className="form-control mb-2 lg:mb-0">
-                                <Link to={''}>
-                                    <input onClick={() => document.getElementById('my_modal_3').showModal()} type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="View Detail" />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <input type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="Request Submit" />
+                </form>
+                {/* </div> */}
             </div>
         </dialog>
     );

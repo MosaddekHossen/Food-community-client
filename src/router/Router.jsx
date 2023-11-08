@@ -11,6 +11,7 @@ import FoodRequest from '../components/pages/foodRequest/FoodRequest';
 import Private from '../components/private/Private';
 import FoodUpdate from '../components/pages/manageFood/FoodUpdate';
 import SingleMaFo from '../components/pages/manageFood/SingleMaFo';
+import Details from '../components/pages/details/Details';
 
 const Router = createBrowserRouter([
     {
@@ -27,6 +28,11 @@ const Router = createBrowserRouter([
                 path: '/availableFoods',
                 element: <AvailableFoods></AvailableFoods>,
                 loader: () => fetch('http://localhost:5000/food')
+            },
+            {
+                path: '/details/:id',
+                element: <Private><Details></Details></Private>,
+                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
             },
             {
                 path: '/addFood',
