@@ -106,7 +106,7 @@ const AddFood = () => {
                                 <span className="label-text">Food Status</span>
                             </label>
                             <label>
-                                <input type="text" required name="foodStatus" placeholder="Available" className="input input-bordered w-full" />
+                                <input type="text" required name="foodStatus" defaultValue={"Available"} placeholder="Available" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
