@@ -19,7 +19,7 @@ const ManageFood = ({ food, foods, setFoods }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/food/${_id}`, {
+                fetch(`https://63-community-food-sharing-server.vercel.app/food/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
@@ -48,12 +48,12 @@ const ManageFood = ({ food, foods, setFoods }) => {
                         <tr className="flex items-center justify-between shadow-xl mb-2">
                             <td>
                                 <div className="avatar">
-                                    <div className="rounded w-40 h-40">
+                                    <div className="rounded md:w-40 w-16 h-16  md:h-40">
                                         <img src={foodImage} alt="" />
                                     </div>
                                 </div>
                             </td>
-                            <Link to={`/manageFood/${_id}`} className="w-1/3 select-none rounded-lg bg-gray-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            <Link to={`/manageFood/${_id}`} className="w-1/3 select-none rounded-lg bg-gray-300 py-3 md:px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                                 Manage
                             </Link>
                             <th>

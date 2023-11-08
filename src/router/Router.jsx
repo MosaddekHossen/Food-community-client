@@ -22,17 +22,17 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/food')
             },
             {
                 path: '/availableFoods',
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/food')
             },
             {
                 path: '/details/:id',
                 element: <Private><Details></Details></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/addFood',
@@ -41,22 +41,22 @@ const Router = createBrowserRouter([
             {
                 path: '/manageFoods',
                 element: <Private><ManageFood></ManageFood></Private>,
-                loader: () => fetch('http://localhost:5000/food')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/food')
             },
             {
                 path: '/foodUpdate/:id',
                 element: <Private><FoodUpdate></FoodUpdate></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/manageFood/:id',
                 element: <Private><SingleMaFo></SingleMaFo></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/foodRequest',
                 element: <Private><FoodRequest></FoodRequest></Private>,
-                loader: () => fetch('http://localhost:5000/request')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/request')
             },
             {
                 path: '/signUp',
