@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const SingleMaFo = () => {
     const User = useLoaderData();
-    const { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, userImage, foodImage } = User || {};
+    const { expiredDate, foodStatus, userName, userEmail, userImage, } = User || {};
 
     return (
         <>
@@ -14,10 +14,10 @@ const SingleMaFo = () => {
                             {/* head */}
                             <thead>
                                 <tr className="text-2xl">
-                                    <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Email</th>
-                                    <th>Time & Date</th>
+                                    <th>Requester Name</th>
+                                    <th>Requester Image</th>
+                                    <th>Requester Email</th>
+                                    <th>Request Time & Date</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -37,7 +37,7 @@ const SingleMaFo = () => {
                                         {expiredDate}
                                     </td>
                                     <th>
-                                        {foodStatus}
+                                        <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">Available</button>
                                     </th>
                                 </tr>
                             </tbody>
