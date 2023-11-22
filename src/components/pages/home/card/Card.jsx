@@ -34,7 +34,7 @@ const card = ({ food }) => {
                             Pickup Location: {pickupLocation}
                         </p>
                         <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                            Price: {expiredDate} $
+                        Expired Date: {expiredDate}
                         </p>
                     </div>
                     <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">

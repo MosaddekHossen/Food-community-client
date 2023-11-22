@@ -10,7 +10,7 @@ const SingleCar = () => {
 
     return (
         <div>
-            <div className="max-w-7xl mx-auto mt-16 text-center" data-aos="zoom-out">
+            <div className="max-w-7xl mx-auto mt-16 text-center" data-aos="zoom-in">
                 <h2 className="lg:text-5xl text-3xl font-bold mb-5">NEW FOOD</h2>
                 <div className="lg:h-full">
                     <div className="hero-content flex-col lg:flex-row-reverse">

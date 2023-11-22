@@ -18,7 +18,7 @@ const FdRequest = ({ food }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://63-community-food-sharing-server.vercel.app/request/${_id}`, {
+                fetch(`http://localhost:5000/request/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
