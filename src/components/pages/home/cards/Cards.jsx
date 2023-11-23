@@ -3,7 +3,7 @@ import Card from "../card/Card";
 
 const Cards = () => {
     const foods = useLoaderData();
-    console.log(foods);
+    // console.log(foods);
 
     return (
         <>

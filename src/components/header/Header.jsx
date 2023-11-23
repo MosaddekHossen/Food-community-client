@@ -7,6 +7,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Sign Out
     const handleLogout = () => {
@@ -16,7 +17,7 @@ const Header = () => {
     }
 
     const navLink = <>
-        <ul className="menu menu-horizontal px-1 md:flex gap-1 hidden">
+        <ul className="menu menu-horizontal px-1 lg:flex gap-1 hidden">
             <li>
                 <NavLink to={'/'}
                     className={({ isActive, isPending }) =>
@@ -102,7 +103,7 @@ const Header = () => {
             <li>
                 <NavLink to={'/signUp'}
                     className={({ isActive, isPending }) =>
-                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
+                        isPending ? 'pending' : isActive ? 'bg-[#753278] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
                     Sign Up
                 </NavLink>
             </li>
@@ -132,22 +133,21 @@ const Header = () => {
 
     return (
         <div className="max-w-7xl mx-auto sticky top-0 z-50">
-            <div className="navbar">
-                <div className="navbar-start">
+            <div className="navbar flex justify-between">
+                <div className="lg:navbar-start lg:w-auto w-3/2">
                     <img className="h-[50px] w-[50] hidden lg:block rounded-full" src="https://img.freepik.com/premium-photo/tandoori-chicken-is-chicken-dish-prepared-by-roasting-chicken-marinated-yogurt-spices-tandoor-clay-oven-served-with-onion-green-chutney_466689-77615.jpg?w=996" alt="" />
                     <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 text-white bg-slate-600 font-black w-8 rounded-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <label tabIndex={0} className="btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-9 mr-2 text-white bg-slate-600 font-black w-9 rounded-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         {navLinkMd}
                     </div>
-                    <Link to='/'><button className="normal-case text-3xl font-bold text-[#6531ae]">Food Sharing</button></Link>
+                    <Link to='/'><button className="normal-case text-[22px] md:text-3xl font-bold text-[#6531ae]">Food Sharing</button></Link>
                 </div>
-                <div className="navbar-center bg-white px-5 rounded-lg lg:flex">
+                <div className="navbar-center lg:mx-auto lg:w-auto bg-white rounded-lg lg:flex">
                     {navLink}
                 </div>
-                <div className="navbar-end">
-
+                <div className="lg:navbar-end lg:w-auto w-3/1">
                     {/* Dark Mode button */}
                     <input
                         type="checkbox"
@@ -156,18 +156,32 @@ const Header = () => {
                         onChange={handleToggle}
                     />
 
-                    {user ? <>
-                        <div className="flex flex-col lg:flex-row justify-center text-center items-center">
-                            <button onClick={handleLogout} className="btn btn-primary mx-3">Login Out</button>
-                            <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
+                    <div
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {user ? <>
                             <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} />
+                                    <label>
+                                        <div>
+                                            <img className="w-10 rounded-full" src={user?.photoURL} />
+                                        </div>
+                                    </label>
                                 </div>
                             </label>
+
+                        </>
+                            : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
+                    </div>
+                    {user && isOpen && (
+                        <div className='absolute rounded-xl shadow-md w-[40vw] p-2 md:p-2 lg:w-[10vw] mr-2 md:w-[20vw] bg-white right-0 top-20'>
+                            <div className='flex flex-col justify-center items-center cursor-pointer'>
+                                <h3 className="font-bold text-center text-green-500">{user?.displayName}</h3>
+                                <button onClick={handleLogout} className="lg:px-5 px-3 mt-2 text-white lg:mt-3 rounded-lg text-[16px] font-bold py-3 bg-[#a433aa]">Login Out</button>
+                            </div>
                         </div>
-                    </>
-                        : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
+                    )}
+
                 </div>
             </div>
         </div>
