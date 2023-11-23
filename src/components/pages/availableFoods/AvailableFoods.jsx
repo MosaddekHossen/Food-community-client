@@ -7,7 +7,7 @@ const AvailableFoods = () => {
     const foods = useLoaderData();
     // Sort
     const [filterData, setFilterData] = useState(foods);
-    console.log(filterData);
+    // console.log(filterData);
     const [asc, setAsc] = useState(true);
     // Search
     const [search, setSearch] = useState('');
@@ -39,7 +39,7 @@ const AvailableFoods = () => {
         <div className="text-center gap-5 mt-10 flex justify-center items-center">
             <form onSubmit={handleSearch} className="flex items-center">
                 <input onChange={e => setSearch(e.target.value)} className="py-2 px-5 border-blue-400 border-2 -mr-2 rounded-md outline-none" type="text" name="search" id="" />
-                <input className="py-2 px-2 hover:bg-blue-300 cursor-pointer border-blue-400 border-2 rounded-md bg-blue-400" type="submit" value="Search" />
+                <input className="py-2 px-2 hover:bg-blue-300 cursor-pointer border-blue-400 border-2 rounded-r-md bg-blue-400" type="submit" value="Search" />
             </form>
             <button onClick={handleFilter} className="btn bg-blue-400">
                 {asc ? 'Sorted By Expire Date' : 'Default date'}
