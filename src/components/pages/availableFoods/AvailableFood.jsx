@@ -9,7 +9,7 @@ const AvailableFood = ({ food }) => {
         <>
             <div className="card shadow-xl h-full mt-5">
                 <figure className="px-2 pt-2">
-                    <img src={foodImage} alt="Car" className="rounded-xl h-[300px] w-full" />
+                    <img src={foodImage} alt="Car" className="rounded-xl h-[300px] object-cover w-full" />
                 </figure>
                 <div className="flex items-center mt-2">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
