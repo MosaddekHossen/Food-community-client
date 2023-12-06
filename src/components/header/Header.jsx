@@ -5,13 +5,13 @@ import Swal from "sweetalert2";
 import Headroom from "react-headroom";
 
 const Header = () => {
-    const { user, logOutUser } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     // Sign Out
     const handleLogout = () => {
-        logOutUser()
+        logOut()
             .then(() => Swal.fire('Oops!', 'LogOut Successful!', 'success'))
             .catch((err) => Swal.fire('Oops!', err.message, 'error'))
     }
@@ -46,10 +46,10 @@ const Header = () => {
                 Food Request
             </NavLink>
 
-            <NavLink to={'/signUp'}
+            {/* <NavLink to={'/signUp'}
                 className={({ isPending, isActive }) => isPending ? "bg-[#92a1eb] hover:bg-[#92a1eb] text-white btn text-[14px] font-semibold" : isActive ? "btn bg-[#fff] text-[14px] font-semibold border-none" : "btn bg-[#616d7b81] border-none hover:bg-[#2d3434] text-white text-[14px] font-semibold"}>
                 Sign Up
-            </NavLink>
+            </NavLink> */}
         </ul>
     </>
 
@@ -133,14 +133,12 @@ const Header = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div className="navbar-center lg:mx-auto lg:w-auto rounded-lg lg:flex">
+                        <div>
                             {navLink}
-                        </div>
-                        <div className="lg:navbar-end lg:w-auto w-3/1">
                             <div onClick={() => setIsOpen(!isOpen)}>
                                 {
                                     user ? <>
-                                        <label tabIndex={0} className="btn btn-primary btn-circle avatar">
+                                        <label tabIndex={0} className="btn btn-circle avatar">
                                             <div className="w-10 rounded-full">
                                                 <label>
                                                     <div>
@@ -152,7 +150,7 @@ const Header = () => {
 
                                     </>
                                         : <NavLink to={'/login'}
-                                            className={({ isPending, isActive }) => isPending ? "bg-[#92a1eb] hover:bg-[#92a1eb] text-white btn text-[14px] font-semibold" : isActive ? "btn bg-[#fff] text-[14px] font-semibold" : "btn bg-[#616d7b81] text-white text-[14px] font-semibold"}                      >
+                                            className={({ isPending, isActive }) => isPending ? "bg-[#92a1eb] hover:bg-[#92a1eb] text-white btn text-[14px] font-semibold" : isActive ? "btn bg-[#fff] text-[14px] font-semibold border-none" : "btn bg-[#616d7b81] border-none hover:bg-[#2d3434] text-white text-[14px] font-semibold"}>
                                             Sign In
                                         </NavLink>
                                 }

@@ -1,10 +1,10 @@
 import Cards from "../cards/Cards";
 import { Helmet } from "react-helmet";
 import Slider from "./Slider";
-import SingleCar from "./singleCar";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import NewFood from "./NewFood";
 
 const Home = () => {
     useEffect(() => {
@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="max-w-7xl mx-auto">
-                <SingleCar></SingleCar>
+                <NewFood></NewFood>
                 <Cards></Cards>
                 <Slider></Slider>
             </div>
