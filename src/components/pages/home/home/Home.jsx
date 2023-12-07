@@ -21,7 +21,7 @@ const Home = () => {
                 objectFit: "cover",
                 backgroundPosition: "top"
             }}>
-                <div className="hero-overlay bg-opacity-20"></div>
+                <div className="hero-overlay bg-opacity-10"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <h1 className="lg:text-5xl text-3xl text-white font-bold text-center">Community Food Sharing <br /> and Surplus
                         Reduction Platform!!!</h1>

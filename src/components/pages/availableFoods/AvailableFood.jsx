@@ -2,44 +2,44 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const AvailableFood = ({ food }) => {
-    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userImage, foodImage } = food || {};
-    //  userEmail,
+    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, userName, userImage, foodImage } = food || {};
 
     return (
         <>
-            <div className="card shadow-xl h-full mt-5">
+            <div className="card shadow-xl h-full mt-5 space-y-2 text-left">
                 <figure className="px-2 pt-2">
-                    <img src={foodImage} alt="Car" className="rounded-xl h-[300px] object-cover w-full" />
+                    <img src={foodImage} alt="Car" className="rounded-xl object-cover h-[300px] w-full" />
                 </figure>
-                <div className="flex items-center mt-2">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 ml-5 rounded-full">
-                            <img src={userImage} />
+                <div className="flex items-center mt-3 ml-4">
+                    <label tabIndex={0} className="btn btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <label>
+                                <div>
+                                    <img alt="Logo" className="w-10 rounded-full cursor-pointer" src={userImage} />
+                                </div>
+                            </label>
                         </div>
                     </label>
                     <div className="ml-3">
                         <h3 className="font-semibold">{userName}</h3>
                     </div>
                 </div>
-                <div className="p-5 ml-2">
-                    <p>Food Quantity: {foodQuantity}</p>
-                </div>
-                <p className="mx-6 p-1 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
+                <h3 className="ml-6 font-sans text-base font-medium text-blue-gray-900">
                     Food Name: {foodName}
-                </p>
-                <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
-                    Status: {foodStatus}
-                </p>
-                <div className="p-6">
-                    <div className="mb-2 md:flex items-center justify-between">
-                        <p className="block mb-3 md:mb-0 font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                </h3>
+                <h3 className="ml-6 font-sans text-base font-medium text-blue-gray-900">
+                    Quantity: {foodQuantity}
+                </h3>
+                <div className="p-6 space-y-2">
+                    <div className="mb-2 md:flex items-center space-y-2 md:skew-y-0 justify-between">
+                        <p className="font-sans text-base font-medium text-blue-gray-900">
                             Pickup Location: {pickupLocation}
                         </p>
-                        <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                        Expire Date: {expiredDate}
+                        <p className="font-sans text-base font-medium text-blue-gray-900">
+                            Expired Date: {expiredDate}
                         </p>
                     </div>
-                    <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                    <p className="font-sans text-base font-normal text-blue-gray-900">
                         Additional Notes: {additionalNotes}
                     </p>
                 </div>

@@ -14,7 +14,7 @@ const AvailableFoods = () => {
 
     const handleFilter = () => {
         fetch(`http://localhost:5000/food?sort=${asc}&search=${search}`)
-        // fetch(`http://localhost:5000/food?sort=${asc}`)
+            // fetch(`http://localhost:5000/food?sort=${asc}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -36,13 +36,13 @@ const AvailableFoods = () => {
         <Helmet>
             <title>Food Sh | AvailableFood</title>
         </Helmet>
-        <div className="text-center gap-5 mt-10 flex justify-center items-center">
+        <div className="text-center gap-5 mt-24 flex md:flex-row flex-col-reverse justify-center items-center">
             <form onSubmit={handleSearch} className="flex items-center">
                 <input onChange={e => setSearch(e.target.value)} className="py-2 px-5 border-blue-400 border-2 -mr-2 rounded-md outline-none" type="text" name="search" id="" />
                 <input className="py-2 px-2 hover:bg-blue-300 cursor-pointer border-blue-400 border-2 rounded-r-md bg-blue-400" type="submit" value="Search" />
             </form>
             <button onClick={handleFilter} className="btn bg-blue-400">
-                {asc ? 'Sorted By Expire Date' : 'Default date'}
+                {asc ? 'Sorted By Expire Date' : 'Default'}
             </button>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24 px-8 lg:px-0">
