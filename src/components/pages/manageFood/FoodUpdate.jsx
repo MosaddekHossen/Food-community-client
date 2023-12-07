@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 const FoodUpdate = () => {
     const { user } = useContext(AuthContext);
     const food = useLoaderData();
-    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, foodImage } = food || {};
+    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodImage } = food || {};
     const { photoURL, displayName, email } = user || {};
 
     const handleUpdate = event => {
@@ -53,7 +53,7 @@ const FoodUpdate = () => {
             <Helmet>
                 <title>Food Sh | Update</title>
             </Helmet>
-            <div className="my-14 max-w-5xl lg:px-24 px-10 py-14 rounded-md bg-[#F4F3F0] mx-auto text-center">
+            <div className="mt-24 mb-10 max-w-5xl lg:px-24 px-10 pt-14 pb-10 rounded-md bg-[#F4F3F0] mx-auto text-center">
                 <h2 className="text-4xl font-bold text-indigo-400 pb-10">Update A Food</h2>
                 <form onSubmit={handleUpdate}>
                     {/* Form row */}
@@ -63,7 +63,7 @@ const FoodUpdate = () => {
                                 <span className="label-text">Food Name</span>
                             </label>
                             <label>
-                                <input type="text" required defaultValue={foodName} name="foodName" placeholder="Food Name" className="input input-bordered w-full" />
+                                <input type="text" required name="foodName" defaultValue={foodName} placeholder="Food Name" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -71,7 +71,7 @@ const FoodUpdate = () => {
                                 <span className="label-text">Food Quantity</span>
                             </label>
                             <label>
-                                <input type="text" required defaultValue={foodQuantity} name="foodQuantity" placeholder="Food Quantity" className="input input-bordered w-full" />
+                                <input type="number" required name="foodQuantity" defaultValue={foodQuantity} placeholder="Food Quantity" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
@@ -95,23 +95,13 @@ const FoodUpdate = () => {
                         </div>
                     </div>
                     {/* Form row */}
-                    <div className="md:flex gap-10 justify-between md:mb-5">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Additional Notes</span>
-                            </label>
-                            <label>
-                                <input type="text" required defaultValue={additionalNotes} name="additionalNotes" placeholder="Additional Notes" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Food Status</span>
-                            </label>
-                            <label>
-                                <input type="text" required defaultValue={foodStatus} name="foodStatus" placeholder="Available" className="input input-bordered w-full" />
-                            </label>
-                        </div>
+                    <div className="form-control md:w-full pb-5">
+                        <label className="label">
+                            <span className="label-text">Food Image</span>
+                        </label>
+                        <label>
+                            <input type="text" defaultValue={foodImage} required name="foodImage" placeholder="Food Image" className="input input-bordered w-full" />
+                        </label>
                     </div>
                     {/* Form row */}
                     <div className="md:flex gap-10 justify-between md:mb-5">
@@ -133,22 +123,31 @@ const FoodUpdate = () => {
                         </div>
                     </div>
                     {/* Form row */}
-                    <div className="form-control md:w-full pb-5">
-                        <label className="label">
-                            <span className="label-text">User Image</span>
-                        </label>
-                        <label>
-                            <input type="text" required name="userImage" placeholder="User Image" readOnly defaultValue={photoURL} className="input input-bordered w-full" />
-                        </label>
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-1/2 pb-7">
+                            <label className="label">
+                                <span className="label-text">User Image</span>
+                            </label>
+                            <img className='w-[100px] h-[100px] object-cover' name="userImage" src={photoURL} alt="Food Image" />
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text">Food Status</span>
+                            </label>
+                            <select name="foodStatus" id="food" className="input input-bordered w-full">
+                                <option value="available">Available</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
                     </div>
                     {/* Form row */}
-                    <div className="form-control md:w-full md:mb-10 pb-5">
-                        <label className="label">
-                            <span className="label-text">Food Image</span>
-                        </label>
-                        <label>
-                            <input type="text" required defaultValue={foodImage} name="foodImage" placeholder="Food Image" className="input input-bordered w-full" />
-                        </label>
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-full pb-5">
+                            <label className="label">
+                                <span className="label-text">Description</span>
+                            </label>
+                            <textarea className="p-5" defaultValue={additionalNotes} required name="additionalNotes" id="add" rows="5" placeholder="Additional Notes"></textarea>
+                        </div>
                     </div>
                     <input type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="Update" />
                 </form>
