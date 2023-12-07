@@ -17,7 +17,6 @@ const AvailableFoods = () => {
             // fetch(`http://localhost:5000/food?sort=${asc}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 setFilterData(data)
             })
         setAsc(!asc)
@@ -34,7 +33,7 @@ const AvailableFoods = () => {
 
     return (<>
         <Helmet>
-            <title>Food Sh | AvailableFood</title>
+            <title>SurplusSaver | AvailableFood</title>
         </Helmet>
         <div className="text-center gap-5 mt-24 flex md:flex-row flex-col-reverse justify-center items-center">
             <form onSubmit={handleSearch} className="flex items-center">

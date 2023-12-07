@@ -40,7 +40,7 @@ const FdRequest = ({ food }) => {
 
     return (
         <>
-            <div className="card shadow-xl h-full mt-5 bg-indigo-400 pt-10">
+            <div className="card shadow-xl h-full mt-14 bg-indigo-400 pt-10">
                 <div className="flex items-center mt-2">
                     <div className="ml-7">
                         <h3 className="font-semibold">Donar Name: {userName}</h3>

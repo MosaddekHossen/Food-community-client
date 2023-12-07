@@ -55,7 +55,7 @@ const Modal = ({ food }) => {
                             <label className="label">
                                 <span className="label-text">Food Image</span>
                             </label>
-                            <img className='w-full h-[200px] object-cover' name="foodImage" defaultValue={foodImage} src={foodImage} alt="Food Image" />
+                            <img className='w-full md:w-1/2 mx-auto h-[200px] object-cover' name="foodImage" defaultValue={foodImage} src={foodImage} alt="Food Image" />
                         </div>
                         <div className="form-control md:w-1/2">
                             <label className="label">

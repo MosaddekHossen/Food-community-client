@@ -39,17 +39,16 @@ const ManageFood = ({ food, foods, setFoods }) => {
         })
     }
 
-
     return (
         <div>
-            <div className="max-w-7xl mx-auto my-20 p-5">
+            <div className="max-w-7xl mx-auto mt-24 mb-10 p-5">
                 <table className="w-full">
                     <tbody>
                         <tr className="flex items-center justify-between shadow-xl mb-2">
                             <td>
                                 <div className="avatar">
                                     <div className="rounded md:w-40 w-16 h-16  md:h-40">
-                                        <img src={foodImage} alt="" />
+                                        <img src={foodImage} alt="Image" />
                                     </div>
                                 </div>
                             </td>

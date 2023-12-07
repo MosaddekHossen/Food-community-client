@@ -1,11 +1,17 @@
-import { useLoaderData } from "react-router-dom";
 import ManageFood from "./ManageFood";
 import { Helmet } from "react-helmet";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const ManageFoods = () => {
-    const mgFoods = useLoaderData()
-    const [foods, setFoods] = useState(mgFoods);
+    const { user } = useContext(AuthContext);
+    const [foods, setFoods] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/foods/${user.email}`)
+            .then(res => res.json())
+            .then(data => setFoods(data))
+    }, [user.email])
 
     return (<>
         <Helmet>

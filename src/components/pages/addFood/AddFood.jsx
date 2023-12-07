@@ -48,7 +48,7 @@ const AddFood = () => {
     return (
         <>
             <Helmet>
-                <title>Food Sh | AddFood</title>
+                <title>SurplusSaver | AddFood</title>
             </Helmet>
             <div className="mt-24 mb-10 max-w-5xl lg:px-24 px-10 py-14 rounded-md bg-[#F4F3F0] mx-auto text-center">
                 <h2 className="text-4xl font-extrabold pb-10">Add A Food</h2>
