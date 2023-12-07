@@ -147,7 +147,6 @@ const Header = () => {
                                                 </label>
                                             </div>
                                         </label>
-
                                     </>
                                         : <NavLink to={'/login'}
                                             className={({ isPending, isActive }) => isPending ? "bg-[#92a1eb] hover:bg-[#92a1eb] text-white btn text-[14px] font-semibold" : isActive ? "btn bg-[#fff] text-[14px] font-semibold border-none" : "btn bg-[#616d7b81] border-none hover:bg-[#2d3434] text-white text-[14px] font-semibold"}>

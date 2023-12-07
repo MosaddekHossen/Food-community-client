@@ -15,7 +15,7 @@ const Cards = () => {
                         foods?.slice(0, 6).map(food => <Card key={food._id} food={food}></Card>)
                     }
                 </div>
-                <Link to={'/availableFoods'}><button className="btn btn-ghost bg-violet-400">SEE ALL FOOD</button></Link>
+                <Link to={'/availableFoods'}><button className="btn text-slate-700 bg-violet-400">SEE ALL FOOD</button></Link>
             </div>
         </>
     );
