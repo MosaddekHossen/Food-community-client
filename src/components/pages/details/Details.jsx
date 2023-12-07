@@ -8,23 +8,23 @@ const Details = () => {
     return (
         <div>
             <Modal food={food}></Modal>
-            <div className="shadow-xl max-w-5xl mx-auto mb-24 mt-10 rounded-xl">
+            <div className="shadow-xl max-w-5xl mx-auto md:mb-24 mb-5 mt-24 md:w-8/12 w-full rounded-xl">
                 <figure className="px-2 pt-2">
-                    <img src={foodImage} alt="Food" className="h-full w-full" />
+                    <img src={foodImage} alt="Food" className="h-[80vh] w-full" />
                 </figure>
-                <div className="p-5">
+                <div className="py-5 px-5">
                     <div className="flex items-center mt-2">
-                        <div className="pl-7 mb-2">
+                        <div className="mb-2">
                             <h3 className="font-semibold">Donar Name: {userName}</h3>
                         </div>
                     </div>
-                    <p className="mx-6 p-1 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
+                    <p className="font-sans text-base font-medium text-blue-gray-900">
                         Food Name: {foodName}
                     </p>
-                    <p className="mx-6 p-1 mt-3 font-sans text-[18px] font-semibold leading-normal text-[#171715] antialiased opacity-75">
+                    <p className="font-sans py-1 mt-3 text-base font-medium text-blue-gray-900">
                         Food Quantity: {foodQuantity}
                     </p>
-                    <div className="p-6">
+                    <div className="py-6">
                         <div className="mb-2 flex items-center justify-between">
                             <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
                                 Food Pickup Location: {pickupLocation}

@@ -7,23 +7,27 @@ const card = ({ food }) => {
         <>
             <div className="card shadow-xl h-full mt-5 space-y-2 text-left">
                 <figure className="px-2 pt-2">
-                    <img src={foodImage} alt="Car" className="rounded-xl h-[300px] w-full" />
+                    <img src={foodImage} alt="Car" className="rounded-xl object-cover h-[300px] w-full" />
                 </figure>
-                <div className="flex items-center mt-2">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 ml-5 rounded-full">
-                            <img src={userImage} />
+                <div className="flex items-center mt-3 ml-4">
+                    <label tabIndex={0} className="btn btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <label>
+                                <div>
+                                    <img alt="Logo" className="w-10 rounded-full cursor-pointer" src={userImage} />
+                                </div>
+                            </label>
                         </div>
                     </label>
                     <div className="ml-3">
                         <h3 className="font-semibold">{userName}</h3>
                     </div>
                 </div>
-                    <p className="ml-6 font-sans text-base font-medium text-blue-gray-900">
-                        Food Name: {foodName}
-                    </p>
+                <p className="ml-6 font-sans text-base font-medium text-blue-gray-900">
+                    Food Name: {foodName}
+                </p>
                 <div className="p-6 space-y-2">
-                    <div className="mb-2 md:flex items-center justify-between">
+                    <div className="mb-2 md:flex items-center space-y-2 md:skew-y-0 justify-between">
                         <p className="font-sans text-base font-medium text-blue-gray-900">
                             Pickup Location: {pickupLocation}
                         </p>
