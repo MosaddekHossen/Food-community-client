@@ -31,11 +31,12 @@ const Modal = ({ food }) => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Add Your Request Food successfully!',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
+                        position: "top-end",
+                        icon: "success",
+                        title: "Add Your Request Food successfully!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                     form.reset();
                 }
             })
