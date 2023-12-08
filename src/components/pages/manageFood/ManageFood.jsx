@@ -28,7 +28,7 @@ const ManageFood = ({ food, foods, setFoods }) => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your Brand has been deleted.',
+                                'Your Food has been deleted.',
                                 'success'
                             )
                             const remaining = foods.filter(food => food._id !== _id);

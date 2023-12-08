@@ -36,7 +36,7 @@ const FoodRequest = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your Brand has been deleted.',
+                                'Your Request has been deleted.',
                                 'success'
                             )
                             const remaining = requests.filter(food => food._id !== _id);
@@ -76,8 +76,8 @@ const FoodRequest = () => {
                                         <td>${food.foodStatus}</td>
                                         <td>{food.pickupLocation}</td>
                                         <td>
-                                            <a href="#" className="btn bg-red-400 text-white hover:bg-red-200" onClick={() => handleDelete(food._id)}>
-                                                Cancel Request
+                                            <a href="#" className="btn bg-red-400 text-[14px] text-white hover:bg-red-200" onClick={() => handleDelete(food._id)}>
+                                                Cancel
                                             </a>
                                         </td>
                                     </tr>
