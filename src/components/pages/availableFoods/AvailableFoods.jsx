@@ -13,8 +13,8 @@ const AvailableFoods = () => {
     const [search, setSearch] = useState('');
 
     const handleFilter = () => {
-        fetch(`http://localhost:5000/food?sort=${asc}&search=${search}`)
-            // fetch(`http://localhost:5000/food?sort=${asc}`)
+        fetch(`63-community-food-sharing-server.vercel.app/food?sort=${asc}&search=${search}`)
+            // fetch(`63-community-food-sharing-server.vercel.app/food?sort=${asc}`)
             .then(res => res.json())
             .then(data => {
                 setFilterData(data)
@@ -24,7 +24,7 @@ const AvailableFoods = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/food?search=${search}`)
+        fetch(`63-community-food-sharing-server.vercel.app/food?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 setFilterData(data)
@@ -46,7 +46,7 @@ const AvailableFoods = () => {
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24 px-8 lg:px-0">
             {
-                filterData?.map(food => <AvailableFood
+                filterData?.map?.(food => <AvailableFood
                     key={food._id}
                     food={food}
                 ></AvailableFood>)

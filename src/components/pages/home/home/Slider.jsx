@@ -23,7 +23,7 @@ const Slider = () => {
                 autoplay={true}
             >
                 {
-                    allData?.map(data => (
+                    allData?.map?.(data => (
                         <SwiperSlide key={data._id}>
                             <img
                                 className='md:h-[300px] object-cover lg:h-[400px] h-[150px]'
