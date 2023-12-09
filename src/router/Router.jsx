@@ -22,17 +22,17 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('63-community-food-sharing-server.vercel.app/foods')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/foods')
             },
             {
                 path: '/availableFoods',
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('63-community-food-sharing-server.vercel.app/food?search=')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/food?search=')
             },
             {
                 path: '/details/:id',
                 element: <Private><Details></Details></Private>,
-                loader: ({ params }) => fetch(`63-community-food-sharing-server.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/addFood',
@@ -45,12 +45,12 @@ const Router = createBrowserRouter([
             {
                 path: '/foodUpdate/:id',
                 element: <Private><FoodUpdate></FoodUpdate></Private>,
-                loader: ({ params }) => fetch(`63-community-food-sharing-server.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/manageFood/:id',
                 element: <Private><SingleMaFo></SingleMaFo></Private>,
-                loader: ({ params }) => fetch(`63-community-food-sharing-server.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/foodRequest',

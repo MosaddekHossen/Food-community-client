@@ -13,8 +13,8 @@ const AvailableFoods = () => {
     const [search, setSearch] = useState('');
 
     const handleFilter = () => {
-        fetch(`63-community-food-sharing-server.vercel.app/food?sort=${asc}&search=${search}`)
-            // fetch(`63-community-food-sharing-server.vercel.app/food?sort=${asc}`)
+        fetch(`https://63-community-food-sharing-server.vercel.app/food?sort=${asc}&search=${search}`)
+            // fetch(`https://63-community-food-sharing-server.vercel.app/food?sort=${asc}`)
             .then(res => res.json())
             .then(data => {
                 setFilterData(data)
@@ -24,7 +24,7 @@ const AvailableFoods = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        fetch(`63-community-food-sharing-server.vercel.app/food?search=${search}`)
+        fetch(`https://63-community-food-sharing-server.vercel.app/food?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 setFilterData(data)

@@ -19,7 +19,7 @@ const ManageFood = ({ food, foods, setFoods }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`63-community-food-sharing-server.vercel.app/food/${_id}`, {
+                fetch(`https://63-community-food-sharing-server.vercel.app/food/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())

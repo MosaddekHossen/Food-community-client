@@ -26,7 +26,7 @@ const FoodUpdate = () => {
         const AddFood = { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, userImage, foodImage }
 
         // Send data to the server
-        fetch(`63-community-food-sharing-server.vercel.app/food/${_id}`, {
+        fetch(`https://63-community-food-sharing-server.vercel.app/food/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

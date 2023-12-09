@@ -8,7 +8,7 @@ const ManageFoods = () => {
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
-        fetch(`63-community-food-sharing-server.vercel.app/foods/${user.email}`)
+        fetch(`https://63-community-food-sharing-server.vercel.app/foods/${user.email}`)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [user.email])
