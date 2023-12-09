@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Modal from "../home/modal/Modal";
+import PropTypes from 'prop-types';
 
 const Details = () => {
     const food = useLoaderData();
@@ -46,5 +47,12 @@ const Details = () => {
         </div>
     );
 };
+
+Modal.propTypes = {
+    food: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]).isRequired,
+  };
 
 export default Details;

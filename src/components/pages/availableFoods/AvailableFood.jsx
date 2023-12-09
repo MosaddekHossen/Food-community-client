@@ -45,21 +45,12 @@ const AvailableFood = ({ food }) => {
                 </div>
                 <div className="p-6 pt-0">
                     <div className="form-control mb-2 lg:mb-0">
-                        <Link to={`/details/${_id}`}><input type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="View Detail" /></Link>
+                        <Link to={`/details/${_id}`}>
+                            <input type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="View Detail" />
+                        </Link>
                     </div>
                 </div>
             </div>
-
-            {/* Modal */}
-            <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
-                    <form method="dialog">
-                        <button onClick={() => document.getElementById('my_modal_3').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    </form>
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click on ✕ button to close</p>
-                </div>
-            </dialog>
         </>
     );
 };

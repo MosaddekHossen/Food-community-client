@@ -7,15 +7,13 @@ const FoodRequest = () => {
     const { user } = useContext(AuthContext);
     const [requests, setRequest] = useState([]);
 
-
     useEffect(() => {
-        fetch(`https://63-community-food-sharing-server.vercel.app/request/${user.email}`)
+        fetch(`http://localhost:5000/request/${user.email}`)
             .then(res => res.json())
             .then(data => setRequest(data))
     }, [user.email])
 
     const handleDelete = _id => {
-        // console.log(_id)
 
         Swal.fire({
             title: 'Are you sure?',
@@ -27,12 +25,11 @@ const FoodRequest = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://63-community-food-sharing-server.vercel.app/request/${_id}`, {
+                fetch(`http://localhost:5000/request/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        // console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',

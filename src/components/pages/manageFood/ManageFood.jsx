@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const ManageFood = ({ food, foods, setFoods }) => {
     const { _id, foodImage } = food || {};
+    console.log(foodImage)
 
     const handleDelete = _id => {
-        // console.log(_id)
 
         Swal.fire({
             title: 'Are you sure?',
@@ -19,12 +19,11 @@ const ManageFood = ({ food, foods, setFoods }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://63-community-food-sharing-server.vercel.app/food/${_id}`, {
+                fetch(`http://localhost:5000/food/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',

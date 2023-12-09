@@ -19,7 +19,7 @@ const Modal = ({ food }) => {
         const AddFood = { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
 
         // Send data to the server
-        fetch('https://63-community-food-sharing-server.vercel.app/request', {
+        fetch('http://localhost:5000/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,6 @@ const Modal = ({ food }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         position: "top-end",
@@ -48,7 +47,6 @@ const Modal = ({ food }) => {
                 <form method="dialog">
                     <button onClick={() => document.getElementById('my_modal_3').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
-                {/* <div className="shadow-xl mt-10"> */}
                 <form onSubmit={handleRequest}>
                     {/* Form row */}
                     <div className="md:flex gap-10 justify-between md:mb-5">
@@ -84,12 +82,11 @@ const Modal = ({ food }) => {
                     </div>
                     <input type="submit" className="btn btn-block bg-gray-600 text-white hover:text-blue-600 font-bold" value="Request Submit" />
                 </form>
-                {/* </div> */}
             </div>
         </dialog>
     );
 };
 Modal.propTypes = {
-    food: PropTypes.object
+    food: PropTypes.string
 }
 export default Modal;
