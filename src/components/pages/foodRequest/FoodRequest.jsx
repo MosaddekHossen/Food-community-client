@@ -49,7 +49,9 @@ const FoodRequest = () => {
             <Helmet>
                 <title>SurplusSaver | FoodRequest</title>
             </Helmet>
-            <div className="max-w-7xl mx-auto mt-28 mb-14 px-8 lg:px-0">
+            {requests.length == 0 ? (
+                <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center"><h1>No food available!</h1></div>
+            ) : <div className="max-w-7xl h-[77vh] mx-auto mt-28 mb-14 px-8 lg:px-0">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
@@ -86,6 +88,8 @@ const FoodRequest = () => {
                 </div>
 
             </div>
+            }
+
         </>
     );
 };
