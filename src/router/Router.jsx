@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Private><Details></Details></Private>,
-                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/addFood',
