@@ -17,10 +17,9 @@ const ManageFoods = () => {
         <Helmet>
             <title>SurplusSaver | ManageFoods</title>
         </Helmet>
-        <div className="px-8 lg:px-0">
-            {foods.length == 0 ? (
-                <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center"><h1>No food available!</h1></div>
-            ) : null}
+        {foods.length == 0 ? (
+            <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center"><h1>No food available!</h1></div>
+        ) : <div className="px-8 h-[86vh] lg:px-0">
             {
                 foods?.map((food, index) => <ManageFood
                     key={index}
@@ -29,7 +28,8 @@ const ManageFoods = () => {
                     setFoods={setFoods}
                 ></ManageFood>)
             }
-        </div>
+        </div>}
+
     </>
     );
 };
