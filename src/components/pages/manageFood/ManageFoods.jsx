@@ -15,7 +15,7 @@ const ManageFoods = () => {
 
     return (<>
         <Helmet>
-            <title>Food Sh | ManageFoods</title>
+            <title>SurplusSaver | ManageFoods</title>
         </Helmet>
         <div className="px-8 lg:px-0">
             {

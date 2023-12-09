@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -40,22 +41,25 @@ const Login = () => {
     }
 
     return (
-        <div className="w-full max-w-md mx-auto mt-28 mb-16 px-6 md:px-0">
+        <div className="w-full max-w-md mx-auto mt-28 mb-20 px-6 md:px-0">
+            <Helmet>
+                <title>SurplusSaver | SignIn</title>
+            </Helmet>
             <div>
                 <div className="card flex-shrink-0 rounded-lg border-2 border-[#ABABAB]">
-                    <h2 className="md:text-4xl text-2xl mt-7 ml-7 font-bold text-black">Login</h2>
-                    <div className="card-body">
+                    <h2 className="md:text-5xl text-2xl mt-7 ml-7 font-bold text-black">Login</h2>
+                    <div className="md:p-7 p-3">
                         <form onSubmit={handleLogin}>
                             <div className="form-control">
                                 <input
                                     type="email"
                                     name="email"
                                     placeholder="Email"
-                                    className="border-[#C5C5C5] border-b-2 border-t-0 border-x-0"
+                                    className="border-[#C5C5C5] py-3 border-b-2 border-t-0 border-x-0"
                                     required />
                             </div>
-                            <div className="form-control my-10">
-                                <input type="password" name="password" placeholder="Password" className="border-[#C5C5C5] border-b-2 border-t-0 border-x-0" required />
+                            <div className="form-control my-8">
+                                <input type="password" name="password" placeholder="Password" className="border-[#C5C5C5] border-b-2 border-t-0 border-x-0 py-3" required />
                                 <label className="label">
                                     <a href="#" className="label-text-alt mt-4 link link-hover">Forgot password?</a>
                                 </label>
@@ -64,7 +68,7 @@ const Login = () => {
                                 <button className="px-12 py-3 bg-[#F9A51A]">Login</button>
                             </div>
                         </form>
-                        <div className="text-center">
+                        <div className="text-center mt-5">
                             <p>Do not have an account? <Link to={'/signUp'}><button href="" className="text-amber-500 mt-2 underline">Create an account</button></Link></p>
                         </div>
                     </div>
