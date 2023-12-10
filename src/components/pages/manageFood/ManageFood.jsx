@@ -19,7 +19,7 @@ const ManageFood = ({ food, foods, setFoods }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/food/${_id}`, {
+                fetch(`https://63-community-food-sharing-server.vercel.app/food/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
@@ -40,7 +40,7 @@ const ManageFood = ({ food, foods, setFoods }) => {
 
     return (
         <div>
-            <div className="max-w-7xl mx-auto mt-24 mb-10 p-5">
+            <div className="max-w-7xl mx-auto my-5 p-5">
                 <table className="w-full">
                     <tbody>
                         <tr className="flex items-center justify-between shadow-xl mb-2">
