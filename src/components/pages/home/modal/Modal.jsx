@@ -4,22 +4,24 @@ import { AuthContext } from '../../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Modal = ({ food }) => {
-    const { foodName, foodQuantity, pickupLocation, expiredDate, userName, foodImage } = food || {};
+    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, userName, foodImage } = food || {};
     const { user } = useContext(AuthContext);
-    const { email } = user || {};
+    const { email, photoURL } = user || {};
 
     const handleRequest = event => {
         event.preventDefault();
         const form = event.target;
+        const id = form.id.value;
+        const userImage = form.userImage.value;
         const additionalNotes = form.additionalNotes.value;
         const foodStatus = form.foodStatus.value;
         const userEmail = form.userEmail.value;
         const foodImage = form.foodImage.value;
 
-        const AddFood = { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
+        const AddFood = { id, foodName, userImage, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
 
         // Send data to the server
-        fetch('https://63-community-food-sharing-server.vercel.app/request', {
+        fetch('https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,6 +50,17 @@ const Modal = ({ food }) => {
                     <button onClick={() => document.getElementById('my_modal_3').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
                 <form onSubmit={handleRequest}>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-full hidden">
+                            <input type="text" name="id" defaultValue={_id} id="foodId" />
+                        </div>
+                    </div>
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-full hidden">
+                            <input type="text" name="userImage" defaultValue={photoURL} id="userImage" />
+                        </div>
+                    </div>
                     {/* Form row */}
                     <div className="md:flex gap-10 justify-between md:mb-5">
                         <div className="form-control md:w-1/2">

@@ -9,9 +9,9 @@ const Details = () => {
     return (
         <div>
             <Modal food={food}></Modal>
-            <div className="shadow-xl max-w-5xl mx-auto md:mb-24 mb-5 mt-24 md:w-8/12 w-full rounded-xl">
+            <div className="shadow-xl max-w-5xl mx-auto md:mb-24 b mb-5 mt-24 md:w-8/12 w-full rounded-xl">
                 <figure className="px-2 pt-2">
-                    <img src={foodImage} alt="Food" className="h-[80vh] w-full" />
+                    <img src={foodImage} alt="Food" className="h-[80vh] object-cover lg:w-8/12 w-full mx-auto " />
                 </figure>
                 <div className="py-5 px-5">
                     <div className="flex items-center mt-2">
@@ -50,9 +50,9 @@ const Details = () => {
 
 Modal.propTypes = {
     food: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
+        PropTypes.string,
+        PropTypes.object,
     ]).isRequired,
-  };
+};
 
 export default Details;

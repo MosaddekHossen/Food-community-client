@@ -1,8 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
 const SingleMaFo = () => {
-    const User = useLoaderData();
-    const { expiredDate, foodStatus, userName, userEmail, userImage, } = User || {};
+    const allData = useLoaderData();
 
     return (
         <>
@@ -18,29 +17,33 @@ const SingleMaFo = () => {
                                     <th>Requester Image</th>
                                     <th>Requester Email</th>
                                     <th>Request Time & Date</th>
-                                    <th>Status</th>
+                                    {/* <th>Status</th> */}
                                 </tr>
                             </thead>
-                            <tbody>
-                                {/* row 1 */}
-                                <tr>
-                                    <th>
-                                        {userName}
-                                    </th>
-                                    <td>
-                                        <img className="h-20 w-20" src={userImage} alt="" />
-                                    </td>
-                                    <td>
-                                        {userEmail}
-                                    </td>
-                                    <td>
-                                        {expiredDate}
-                                    </td>
-                                    <th>
-                                        <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">{foodStatus}</button>
-                                    </th>
-                                </tr>
-                            </tbody>
+                            {
+                                allData?.map(item => <>
+                                    <tbody>
+                                        <tr key={item._id}>
+                                            <th>
+                                                {item.userName}
+                                            </th>
+                                            <td>
+                                                <img className="h-20 w-20" src={item.userImage} alt="" />
+                                            </td>
+                                            <td>
+                                                {item.userEmail}
+                                            </td>
+                                            <td>
+                                                {item.expiredDate}
+                                            </td>
+                                            {/* <th>
+                                                <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">{item.foodStatus}</button>
+                                            </th> */}
+                                        </tr>
+                                    </tbody>
+                                </>)
+                            }
+
                         </table>
                     </div>
                 </div>
