@@ -22,17 +22,17 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/foods')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/foods')
             },
             {
                 path: '/availableFoods',
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/food?search=')
+                loader: () => fetch('https://63-community-food-sharing-server.vercel.app/food?search=')
             },
             {
                 path: '/details/:id',
                 element: <Private><Details></Details></Private>,
-                loader: ({ params }) => fetch(`https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/addFood',
@@ -45,12 +45,12 @@ const Router = createBrowserRouter([
             {
                 path: '/foodUpdate/:id',
                 element: <Private><FoodUpdate></FoodUpdate></Private>,
-                loader: ({ params }) => fetch(`https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/food/${params.id}`)
             },
             {
                 path: '/manageFood/:id',
                 element: <Private><SingleMaFo></SingleMaFo></Private>,
-                loader: ({ params }) => fetch(`https://63-community-food-sharing-server-lzsqjvm0b-mosaddek.vercel.app/requests/${params.id}`)
+                loader: ({ params }) => fetch(`https://63-community-food-sharing-server.vercel.app/requests/${params.id}`)
             },
             {
                 path: '/foodRequest',
