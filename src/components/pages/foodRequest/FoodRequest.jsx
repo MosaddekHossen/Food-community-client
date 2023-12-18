@@ -8,7 +8,7 @@ const FoodRequest = () => {
     const [requests, setRequest] = useState([]);
 
     useEffect(() => {
-        fetch(`https://63-community-food-sharing-server.vercel.app/request/${user.email}`)
+        fetch(`http://localhost:5000/request/${user.email}`)
             .then(res => res.json())
             .then(data => setRequest(data))
     }, [user.email])
@@ -25,7 +25,7 @@ const FoodRequest = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://63-community-food-sharing-server.vercel.app/request/${_id}`, {
+                fetch(`http://localhost:5000/request/${_id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())
