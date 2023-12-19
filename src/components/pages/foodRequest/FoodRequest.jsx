@@ -2,15 +2,20 @@ import { Helmet } from "react-helmet";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { ClipLoader } from 'react-spinners'; 
 
 const FoodRequest = () => {
     const { user } = useContext(AuthContext);
     const [requests, setRequest] = useState([]);
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`http://localhost:5000/request/${user.email}`)
             .then(res => res.json())
-            .then(data => setRequest(data))
+            .then(data => {
+                setRequest(data)
+                setLoading(false)
+            })
     }, [user.email])
 
     const handleDelete = _id => {
@@ -49,25 +54,31 @@ const FoodRequest = () => {
             <Helmet>
                 <title>SurplusSaver | FoodRequest</title>
             </Helmet>
-            {requests.length == 0 ? (
-                <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center"><h1>No food available!</h1></div>
-            ) : <div className="max-w-7xl mx-auto mt-28 mb-14 px-8 lg:px-0"> {/* h-[77vh] */}
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr className="font-bold text-2xl">
-                                <th></th>
-                                <th>Donar Name:</th>
-                                <th>Expire Date:</th>
-                                <th>Amount:</th>
-                                <th>Pickup Location:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            {
-                                requests?.map((food, index) => (
+            {isLoading ? (
+                <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center">
+                    <ClipLoader color="#36D7B7" loading={isLoading} size={150} />
+                </div>
+            ) : requests.length === 0 ? (
+                <div className="h-[100vh] md:text-5xl text-2xl font-bold flex justify-center items-center">
+                    <h1>No food request available!</h1>
+                </div>
+            ) : (
+                <div className="max-w-7xl mx-auto mt-28 mb-14 px-8 lg:px-0"> {/* h-[77vh] */}
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr className="font-bold text-2xl">
+                                    <th></th>
+                                    <th>Donor Name:</th>
+                                    <th>Expire Date:</th>
+                                    <th>Amount:</th>
+                                    <th>Pickup Location:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* rows */}
+                                {requests?.map((food, index) => (
                                     <tr key={food._id} className="text-[16px] font-semibold">
                                         <th>{index + 1}</th>
                                         <td>{food.userName}</td>
@@ -80,15 +91,12 @@ const FoodRequest = () => {
                                             </a>
                                         </td>
                                     </tr>
-                                ))
-                            }
-
-                        </tbody>
-                    </table>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-            </div>
-            }
+            )}
 
         </>
     );
