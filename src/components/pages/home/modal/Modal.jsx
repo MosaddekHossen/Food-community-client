@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Modal = ({ food }) => {
-    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, userName, foodImage } = food || {};
+    const { _id, foodName, foodQuantity, pickupLocation, expiredDate, userName, foodStatus, foodImage } = food || {};
     const { user } = useContext(AuthContext);
     const { email, photoURL } = user || {};
 
@@ -14,11 +14,12 @@ const Modal = ({ food }) => {
         const id = form.id.value;
         const userImage = form.userImage.value;
         const additionalNotes = form.additionalNotes.value;
+        const donationMoney = form.donationMoney.value;
         const foodStatus = form.foodStatus.value;
         const userEmail = form.userEmail.value;
         const foodImage = form.foodImage.value;
 
-        const AddFood = { id, foodName, userImage, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
+        const AddFood = { id, foodName, userImage, foodQuantity, pickupLocation, donationMoney, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
 
         // Send data to the server
         fetch('http://localhost:5000/request', {
@@ -53,6 +54,12 @@ const Modal = ({ food }) => {
                     {/* Form row */}
                     <div className="md:flex gap-10 justify-between md:mb-5">
                         <div className="form-control md:w-full hidden">
+                            <input type="text" name="foodStatus" defaultValue={foodStatus} id="foodId" />
+                        </div>
+                    </div>
+                    {/* Form row */}
+                    <div className="md:flex gap-10 justify-between md:mb-5">
+                        <div className="form-control md:w-full hidden">
                             <input type="text" name="id" defaultValue={_id} id="foodId" />
                         </div>
                     </div>
@@ -80,7 +87,7 @@ const Modal = ({ food }) => {
                                 <span className="label-text">Donation Money</span>
                             </label>
                             <label>
-                                <input type="number" required name="foodStatus" placeholder="Donation Money" className="input input-bordered w-full" />
+                                <input type="number" required name="donationMoney" placeholder="Donation Money" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

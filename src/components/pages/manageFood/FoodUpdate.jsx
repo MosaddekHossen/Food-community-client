@@ -135,8 +135,8 @@ const FoodUpdate = () => {
                                 <span className="label-text">Food Status</span>
                             </label>
                             <select name="foodStatus" id="food" className="input input-bordered w-full">
-                                <option value="available">Available</option>
-                                <option value="pending">Pending</option>
+                                <option value="Available">Available</option>
+                                <option value="Delivered">Delivered</option>
                             </select>
                         </div>
                     </div>

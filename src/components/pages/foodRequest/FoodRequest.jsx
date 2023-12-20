@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { ClipLoader } from 'react-spinners'; 
+import { ClipLoader } from 'react-spinners';
 
 const FoodRequest = () => {
     const { user } = useContext(AuthContext);
@@ -83,12 +83,15 @@ const FoodRequest = () => {
                                         <th>{index + 1}</th>
                                         <td>{food.userName}</td>
                                         <td>{food.expiredDate}</td>
-                                        <td>${food.foodStatus}</td>
+                                        <td>${food.donationMoney}</td>
                                         <td>{food.pickupLocation}</td>
                                         <td>
-                                            <a href="#" className="btn bg-red-400 text-[14px] text-white hover:bg-red-200" onClick={() => handleDelete(food._id)}>
+                                            {food?.foodStatus == "Available" ? <a href="#" className="btn bg-red-500 text-[14px] text-white hover:bg-red-800" onClick={() => handleDelete(food._id)}>
                                                 Cancel
+                                            </a> : <a href="#" disabled className="btn bg-green-500 text-[14px] text-white hover:bg-green-700">
+                                                Delivered
                                             </a>
+                                            }
                                         </td>
                                     </tr>
                                 ))}

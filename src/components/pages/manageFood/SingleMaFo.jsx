@@ -17,7 +17,7 @@ const SingleMaFo = () => {
                                     <th>Requester Image</th>
                                     <th>Requester Email</th>
                                     <th>Request Time & Date</th>
-                                    {/* <th>Status</th> */}
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             {
@@ -28,7 +28,11 @@ const SingleMaFo = () => {
                                                 {item.userName}
                                             </th>
                                             <td>
-                                                <img className="h-20 w-20" src={item.userImage} alt="" />
+                                                <div className="avatar">
+                                                    <div className="mask rounded-full w-12 h-12">
+                                                        <img src={item.userImage} alt="Image" />
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
                                                 {item.userEmail}
@@ -36,9 +40,9 @@ const SingleMaFo = () => {
                                             <td>
                                                 {item.expiredDate}
                                             </td>
-                                            {/* <th>
-                                                <button className="px-6 text-white font-bold rounded-lg hover:bg-slate-500 py-2 bg-[#a5aca5]">{item.foodStatus}</button>
-                                            </th> */}
+                                            <th>
+                                                {item.foodStatus == "Available" ? <button className="px-6 text-white font-bold py-2 rounded-lg bg-green-600 hover:bg-green-800">Available</button> : <button className="px-6 text-white font-bold py-2 rounded-lg bg-blue-600 hover:bg-blue-800">Delivered</button>}
+                                            </th>
                                         </tr>
                                     </tbody>
                                 </>)
