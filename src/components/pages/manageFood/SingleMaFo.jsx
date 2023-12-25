@@ -3,6 +3,12 @@ import { useLoaderData } from "react-router-dom";
 const SingleMaFo = () => {
     const allData = useLoaderData();
 
+    const handleUpdate = (status) => {
+        console.log(status);
+        const { expiredDate, additionalNotes } = status || {};
+        console.log(expiredDate, additionalNotes);
+    }
+
     return (
         <>
             <div className="rounded-md my-12 py-12 bg-[#F4F3F0] text-center">
@@ -41,7 +47,11 @@ const SingleMaFo = () => {
                                                 {item.expiredDate}
                                             </td>
                                             <th>
-                                                {item.foodStatus == "Available" ? <button className="px-6 text-white font-bold py-2 rounded-lg bg-green-600 hover:bg-green-800">Available</button> : <button className="px-6 text-white font-bold py-2 rounded-lg bg-blue-600 hover:bg-blue-800">Delivered</button>}
+                                                {
+                                                    item.foodStatus == "Available" ?
+                                                        <button onClick={() => handleUpdate(item)} className="px-6 text-white font-bold py-2 rounded-lg bg-green-600 hover:bg-green-800">Available</button> :
+                                                        <button className="px-6 text-white font-bold py-2 rounded-lg bg-blue-600 hover:bg-blue-800">Delivered</button>
+                                                }
                                             </th>
                                         </tr>
                                     </tbody>

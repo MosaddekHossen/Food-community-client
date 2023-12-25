@@ -24,7 +24,7 @@ const FoodUpdate = () => {
         const userImage = form.userImage.value;
         const foodImage = form.foodImage.value;
         const AddFood = { foodName, foodQuantity, pickupLocation, expiredDate, additionalNotes, foodStatus, userName, userEmail, userImage, foodImage }
-
+console.log(AddFood);
         // Send data to the server
         fetch(`http://localhost:5000/food/${_id}`, {
             method: 'PUT',
