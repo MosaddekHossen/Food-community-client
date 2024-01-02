@@ -22,7 +22,7 @@ const Modal = ({ food }) => {
         const AddFood = { id, foodName, userImage, foodQuantity, pickupLocation, donationMoney, expiredDate, additionalNotes, foodStatus, userName, userEmail, foodImage }
 
         // Send data to the server
-        fetch('http://localhost:5000/request', {
+        fetch('https://63-community-food-sharing-server.vercel.app/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

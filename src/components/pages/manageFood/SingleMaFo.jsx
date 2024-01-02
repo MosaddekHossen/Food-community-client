@@ -1,12 +1,29 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SingleMaFo = () => {
     const allData = useLoaderData();
 
     const handleUpdate = (status) => {
-        console.log(status);
-        const { expiredDate, additionalNotes } = status || {};
-        console.log(expiredDate, additionalNotes);
+        fetch(`https://63-community-food-sharing-server.vercel.app/request/${status._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(data => {
+                location.reload();
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food Status change successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
     return (
@@ -50,7 +67,7 @@ const SingleMaFo = () => {
                                                 {
                                                     item.foodStatus == "Available" ?
                                                         <button onClick={() => handleUpdate(item)} className="px-6 text-white font-bold py-2 rounded-lg bg-green-600 hover:bg-green-800">Available</button> :
-                                                        <button className="px-6 text-white font-bold py-2 rounded-lg bg-blue-600 hover:bg-blue-800">Delivered</button>
+                                                        <button disabled className="btn btn-disabled">Delivered</button>
                                                 }
                                             </th>
                                         </tr>
